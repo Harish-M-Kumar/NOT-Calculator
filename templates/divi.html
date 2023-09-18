@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 10%;
+            background-image: url('{% static "diviimg.jpg" %}');
+            color: white;
+            font-family: 'Righteous', sans-serif;
+            font-weight: 400;
+        }
+        .head-class{
+            margin-bottom: 5%;
+            display: flex;
+            justify-content: center;
+        
+        }
+        .main{
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 20%;
+            padding-right: 20%;
+            justify-content: space-between;
+            row-gap: 100px;
+            align-items: center;
+            column-gap: 50px;
+        }
+        .btn-primary{
+            box-shadow: 0px 10px 20px 6px #28374d;
+            width: 200px;
+            height: 80px;
+            border-radius: 50px;
+            padding: 10px;
+            font-size: 30px;
+            color: white;
+        }
+        .number{
+            padding-bottom: 10%;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form action="division" method="post">
+            {% csrf_token %}
+            <div class="number"><label for="divi">Number 1</label>
+                <input type="number" step="0.01" class="form-control" id="1" name="divi1" placeholder="Enter a Number">
+            </div>
+            <div class="number"><label for="divi">Number 2</label>
+                <input type="number" step="0.01" class="form-control" id="2" name="divi2" placeholder="Enter a Number">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Divide</button><br><br>
+            <h1>{{output}}</h1>
+        </form>
+    </div>
+    <a href="math"><button class="btn btn-primary previous" style="
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        border-radius: 100px;
+        width: 80px;
+        height: 80px;
+        font-size: xx-large;
+    ">&lt;</button></a>
+</body>
+</html>
